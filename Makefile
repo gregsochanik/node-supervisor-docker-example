@@ -1,12 +1,13 @@
+help:
+	@echo "run_image accepts ENV parameter (dev|uat|prod)"
+
 build_image:
 	docker build -t node-superv .
 
-run_image_dev:
-	docker run -d -p 80:3000 -v $(shell pwd)/supervisor/dev:/supervisor node-superv
+ENV="dev"
+PORT=3000
 
-run_image_uat:
-	docker run -d -p 80:3000 -v $(shell pwd)/supervisor/uat:/supervisor node-superv
-
-run_image_prod:
-	docker run -d -p 80:3000 -v $(shell pwd)/supervisor/prod:/supervisor node-superv
+run_image:
+	@echo $(ENV)
+	docker run -d -p $(PORT):3000 -v $(shell pwd)/supervisor/$(ENV):/supervisor node-superv
 
