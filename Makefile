@@ -10,7 +10,7 @@ NAME="web00"
 
 run_image:
 	@echo $(ENV)
-	docker run --name $(NAME) -d -v $(shell pwd)/supervisor/$(ENV):/supervisor node-superv
+	docker run --name $(NAME) -d -e INSTANCE_NAME=$(NAME) -v $(shell pwd)/supervisor/$(ENV):/supervisor node-superv
 
 run_all:
 	make run_image ENV=$(ENV) NAME="web00"
