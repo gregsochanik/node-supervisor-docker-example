@@ -15,8 +15,8 @@ RUN cd /src && \
 
 ## TODO - Now need to switch this to run supervisor with an optional supervisor.conf file - fail fast with missing conf file?
 
-WORKDIR /src
+WORKDIR /
 EXPOSE 3000 
 
-CMD npm start
+CMD supervisord -c /supervisor/supervisor.conf
 
