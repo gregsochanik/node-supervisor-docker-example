@@ -10,8 +10,9 @@ NAME="web00"
 
 run_image:
 	@echo $(ENV)
-	docker run --name $(NAME) -d -p $(PORT):3000 -v $(shell pwd)/supervisor/$(ENV):/supervisor node-superv
+	docker run --name $(NAME) -d -v $(shell pwd)/supervisor/$(ENV):/supervisor node-superv
 
 run_all:
-	make run_image ENV=$(ENV) PORT=3000 NAME="web00"
-	make run_image ENV=$(ENV) PORT=3001 NAME="web01"
+	make run_image ENV=$(ENV) NAME="web00"
+	make run_image ENV=$(ENV) NAME="web01"
+	docker run --name docker-nginx --link web00:web00 --link web01:web01 -p 80:80 -v `pwd`/docker-nginx/nginx.conf:/etc/nginx/nginx.conf -d nginx
