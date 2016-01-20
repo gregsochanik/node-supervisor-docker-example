@@ -1,0 +1,15 @@
+{
+  "name": "node-supervisor-demo",
+  "version": "1.0.0",
+  "description": "A demo app that shows node working within a supervisorctl docker image",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp test",
+    "start": "node index.js"
+  },
+  "author": "Greg Sochanik",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.3"
+  }
+}
