@@ -15,7 +15,7 @@ run_image:
 run_all:
 	make run_image ENV=$(ENV) NAME="web00"
 	make run_image ENV=$(ENV) NAME="web01"
-	docker run --name docker-nginx --link web00:web00 --link web01:web01 -p 80:80 -v `pwd`/docker-nginx/nginx.conf:/etc/nginx/nginx.conf -d nginx
+	docker run --name docker-nginx --link web00:web00 --link web01:web01 -p 80:80 -v `pwd`/docker-nginx/:/etc/nginx/conf.d/ -d nginx
 
 kill_all: 
 	docker kill docker-nginx
