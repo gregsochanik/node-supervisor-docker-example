@@ -7,8 +7,7 @@ RUN apt-get update -y && \
 
 RUN mkdir /src
 
-ADD index.js /src
-ADD package.json /src
+ADD . /src
 
 RUN cd /src && \
   npm install --production
@@ -17,4 +16,3 @@ WORKDIR /
 EXPOSE 3000 
 
 CMD supervisord -c /supervisor/supervisor.conf
-
