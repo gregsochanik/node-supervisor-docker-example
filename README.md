@@ -26,6 +26,5 @@ run all
 * runs nginx and passes the default ngix.conf file set up with a reverse proxy to these 2 linked containers (web00 and web01)
 
 #####Still to do
-* The nginx.conf is currently hard coded to the default generated ip addresses, this is obvs not great, would be better if it built the conf on the fly
 * Add dockerignore file and pass in whole local file tree to docker image, would then be more portable
 * Attempt to shut down each container one by one for zero downtime deployment
