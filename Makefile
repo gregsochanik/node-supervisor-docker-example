@@ -16,7 +16,7 @@ run_all:
 	make run_image ENV=$(ENV) NAME="web00"
 	make run_image ENV=$(ENV) NAME="web01"
 	make compile_upstream
-	docker run --name docker-nginx --link web00:web00 --link web01:web01 -p 80:80 -v `pwd`/docker-nginx/:/etc/nginx/conf.d/ -d nginx
+	docker run --name docker-nginx --link web00:web00 --link web01:web01 -p 80:80 -v `pwd`/nginx/conf.d/:/etc/nginx/conf.d/ -d nginx
 
 define API_UPSTREAM
 upstream api_servers {
@@ -27,7 +27,7 @@ endef
 export API_UPSTREAM
 
 compile_upstream:
-	@echo "$$API_UPSTREAM" > `pwd`/docker-nginx/api_upstream.conf
+	@echo "$$API_UPSTREAM" > `pwd`/nginx/conf.d/api_upstream.conf
 
 kill_all: 
 	docker kill docker-nginx

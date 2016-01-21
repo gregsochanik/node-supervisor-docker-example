@@ -17,13 +17,13 @@ You should see the following:
 
 ### Whats happening
 
-build_image
+`build_image`  
 * creates a docker image from node:4.2 and installs supervisord
 
-run all 
+`run_all`  
 * generates 2 docker containers running nodejs under supervisorctl
 * passes the env specific supervisor.conf 
-* runs nginx and passes the default ngix.conf file set up with a reverse proxy to these 2 linked containers (web00 and web01)
+* runs nginx and passes docker-ngix as file set up with a reverse proxy to these 2 linked containers (web00 and web01)
 
 #####Still to do
 * Add dockerignore file and pass in whole local file tree to docker image, would then be more portable
