@@ -25,6 +25,3 @@ You should see the following:
 * passes the env specific supervisor.conf 
 * runs nginx and passes `nginx/conf.d` to container, set up with a reverse proxy to these 2 linked containers (web00 and web01)
 
-#####Still to do
-* Add dockerignore file and pass in whole local file tree to docker image, would then be more portable
-* Attempt to shut down each container one by one for zero downtime deployment
