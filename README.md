@@ -23,7 +23,7 @@ You should see the following:
 `run_all`  
 * generates 2 docker containers running nodejs under supervisorctl
 * passes the env specific supervisor.conf 
-* runs nginx and passes docker-ngix as file set up with a reverse proxy to these 2 linked containers (web00 and web01)
+* runs nginx and passes `nginx/conf.d` to container, set up with a reverse proxy to these 2 linked containers (web00 and web01)
 
 #####Still to do
 * Add dockerignore file and pass in whole local file tree to docker image, would then be more portable
