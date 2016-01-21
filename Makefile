@@ -30,9 +30,6 @@ compile_upstream:
 	@echo "$$API_UPSTREAM" > `pwd`/nginx/conf.d/api_upstream.conf
 
 kill_all: 
-	docker kill docker-nginx
-	docker rm docker-nginx
-	docker kill web00
-	docker rm web00
-	docker kill web01
-	docker rm web01
+	-docker rm -f docker-nginx
+	-docker rm -f web00
+	-docker rm -f web01
